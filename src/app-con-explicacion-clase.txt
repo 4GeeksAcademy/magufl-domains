@@ -1,0 +1,60 @@
+/* eslint-disable */
+import "bootstrap";
+import "./style.css";
+
+window.onload = () => {
+    let pronoun = ['the', 'our'];
+    let adj = ['great', 'big'];
+    let noun = ['jogger', 'racoon'];
+
+    //for lengh
+    let textfor = '<ul class="list-group">'
+    textfor += '<li class="list-group-item bg-success">hola</li>'
+
+    for (let i=0 ; i<pronoun.length; i++){
+        for (let j=0 ; j<adj.length; j++){
+            for (let k=0 ; k<noun.length;k++){
+                textfor += '<li class="list-group-item">' + pronoun[i] + adj[j] + noun[k] + '</li>'
+            }
+        }
+    }
+    textfor += '</ul>'
+    document.querySelector('#for').innerHTML=textfor;
+
+    //forof
+    let textof = '<ul class="list-group">'
+    textof += '<li class="list-group-item bg-success">hola</li>'
+
+    for (const iterator of pronoun) {
+         for (const item of adj) {
+            for (const otro of noun) {
+                textof += ` 
+                <li class="list-group-item"> 
+                ${iterator} ${item} ${otro}
+                </li>` 
+                
+            }
+        } 
+    }    
+   textof += '</ul>'
+   document.querySelector('#of').innerHTML=textof;
+
+
+   //using .map
+   let textmap = '<ul class="list-group">'
+   textmap += '<li class="list-group-item bg-success">hola</li>'
+
+    pronoun.map ((item)=> {
+        adj.map ((item2)=>{
+            noun.map ((item3)=>{
+                textmap += 
+                ` 
+                <li class="list-group-item"> 
+                ${item} ${item2} ${item3}
+                </li>` 
+            })
+        })
+    })
+    textmap += '</ul>'
+    document.querySelector('#map').innerHTML=textmap;
+};

@@ -2,10 +2,27 @@
 import "bootstrap";
 import "./style.css";
 
-import "./assets/img/rigo-baby.jpg";
-import "./assets/img/4geeks.ico";
-
 window.onload = function() {
-  //write your code here
-  console.log("Hello Rigo from the console!");
+  function hacerdominiorandom(arrai1, arrai2, arrai3) {
+    var combinaciones = '<ul class="list-group">';
+
+    arrai1.map(item1 => {
+      arrai2.map(item2 => {
+        arrai3.map(item3 => {
+          combinaciones += `
+          <li class="list-group-item">${item1}${item2}${item3}.com</li>`;
+        });
+      });
+    });
+    return (combinaciones += "</ul>");
+  }
+  let pronoun = ["the", "our"];
+  let adj = ["great", "big"];
+  let noun = ["jogger", "racoon"];
+
+  document.querySelector("#dominio").innerHTML = `${hacerdominiorandom(
+    pronoun,
+    adj,
+    noun
+  )}`;
 };
